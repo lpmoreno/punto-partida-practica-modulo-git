@@ -30,14 +30,13 @@ const OPTIONS: Option[] = [
       "Un fork es una copia de un repositorio en tu cuenta. Puedes proponer cambios al original mediante un Pull Request.",
     featureFlag: true,
   },
-  // Añade aquí la Opción 4 durante la clase:
-  // {
-  //   id: 4,
-  //   title: 'Opción 4',
-  //   description: 'Descripción corta',
-  //   message: 'Escribe aquí el mensaje de la Opción 4.',
-  //   featureFlag: false,
-  // },
+  {
+     id: 4,
+     title: 'Opción 4',
+     description: 'Descripción corta',
+     message: 'Escribe aquí el mensaje de la Opción 4.',
+     featureFlag: false,
+  },
 ];
 
 export default function App() {
