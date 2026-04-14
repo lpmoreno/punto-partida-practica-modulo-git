@@ -75,7 +75,9 @@ git commit -m "feat: añadir Opción 5 y actualizar descripción de Opción 3"
 
 6. Sube la rama a tu fork.
 ```
-git push -u origin feat
+git push -u origin feature/opcion-5
 ```
 
-> **Diario:** Explica por qué la rama parte de `dev` y no de `main`. Adjunta la captura 3.
+La rama parte de dev porque en este proyecto el desarrollo se está realizando sobre la rama dev. La rama main es la rama estable y los cambios en ella se realizarán de forma muy controlada para evitar pérdidas de datos.
+
+![Imagen 3. La app en el navegador con la Opción 5 recién añadida](capturas/Captura3.png)
