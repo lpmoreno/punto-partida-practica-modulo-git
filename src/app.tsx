@@ -33,11 +33,20 @@ const OPTIONS: Option[] = [
   {
      id: 4,
      title: 'Opcion 4',
-     description: 'Pull Requests',
+     description: 'Merge and conflicts',
      message: 'Escribe aquí el mensaje de la Opción 4.',
      featureFlag: false,
   },
   {
+    id: 5,
+    title: "Opción 5",
+    description: "Pull Request",
+    message:
+      "Una Pull Request es una propuesta formal para incorporar cambios de una rama a otra. Permite revisar el código antes de mergear y deja un historial claro de qué se hizo y por qué.",
+    featureFlag: false,
+  },
+  {
+
     id: 6,
     title: "Opción 6",
     description: "gitignore",
@@ -45,6 +54,7 @@ const OPTIONS: Option[] = [
       "El fichero .gitignore le dice a Git qué ficheros debe ignorar. Úsalo para excluir ficheros de entorno (.env), dependencias (node_modules) y cualquier cosa que no deba estar en el repositorio.",
     featureFlag: false,
   },
+
 ];
 
 export default function App() {

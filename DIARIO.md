@@ -1,5 +1,5 @@
 # Laboratorio - Flujo Git colaborativo
-# Author: Laura Paneque Moreno
+## Author: Laura Paneque Moreno
 
 ## Tarea 1 - Fork y configuración inicial
 
@@ -39,9 +39,12 @@ Un fork o bifurcación es la creación de una copia independiente a partir de un
 Upstream hace referencia al repositorio original desde el que se ha clonado (forked) un proyecto. Nos permite mantener nuestra copia actualizada con los cambios de otros desarrolladores. Además, podemos solicitar la integración de nuestros cambios en el repositorio original.
 
 ![Imagen 1. Terminal con `git remote -v` mostrando `origin` y `upstream` ](capturas/Captura1.png)
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 ![Imagen 2. GitHub con la rama `dev` visible en el desplegable de ramas ](capturas/Captura2.png)
 =======
+=======
+>>>>>>> origin/dev
 ![Imagen 2. GitHub con la rama `dev` visible en el desplegable de ramas ](capturas/Captura2.png)
 
 
@@ -128,6 +131,45 @@ git push origin feature/opcion-6
 ```
 
 Un conflicto se produce cuando dos personas o ramas editan la misma línea de un fichero, impidiendo así que GIT pueda realizar una fusión automática. En este punto es necesaria una intervención manual para mezlar e integrar ambos cambios. 
+
+---
+
+### Tarea 4 — Pull Request 1: Feature A a `dev`
+
+1. Abre una Pull Request en GitHub desde `feature/opcion-5` hacia `dev`.
+2. Ponle como título: `feat: añadir Opción 5 y actualizar descripción de Opción 3`
+3. Antes de mergear, abre la pestaña **Files changed** y revisa el diff.
+4. Mergea el PR.
+5. Actualiza tu rama `dev` local con `git pull origin dev`.
+
+En la pestaña Files changed revisamos los cambios realizados entre ambas ramas. Es útil hacerlo antes de mergear para evitar integrar código no deseado y/o evitar la pérdida de código. Adjunta la captura 4.
+
+![Imagen 4. El PR de Feature A en GitHub con la pestaña **Files changed** abierta ](capturas/Captura4.png)
+---
+
+### Tarea 5 — Pull Request 2: Feature B a `dev`, conflicto
+
+1. Abro una Pull Request desde `feature/opcion-6` hacia `dev`.
+2. GitHub detectará un conflicto. No podrá mergear automáticamente.
+3. Resuelvo el conflicto **en local** siguiendo estos pasos:
+   - Me situo en la rama `feature/opcion-6`
+   - Descargo `dev` con `git fetch origin dev`
+   - Fusiono con `git merge origin/dev`
+   - Abro `src/app.tsx` en VS Code y localizo los marcadores de conflicto
+   - Me quedo con la versión de  **`"Flujo profesional"`**
+   - Guardo el fichero
+   - Arranco la app y verifico que se ven todas las opciones correctamente
+   - Hago el commit de resolución: `merge: resolver conflicto de descripción en Opción 3`
+   - Subo la rama con `git push origin feature/opcion-6`
+4. Vuelve al PR en GitHub. El conflicto habrá desaparecido. Mergea el PR.
+5. Actualiza tu `dev` local.
+
+![Imagen 5. El PR de Feature A en GitHub con la pestaña **Files changed** abierta ](capturas/Captura5.png)
+![Imagen 6. El PR de Feature B en GitHub mostrando el banner rojo de conflicto  ](capturas/Captura6.png)
+![Imagen 7. El PR de Feature A en GitHub con la pestaña **Files changed** abierta ](capturas/Captura6.png)
+
+
+> **Diario:** Explica qué significan los marcadores `<<<<<<<`, `=======` y `>>>>>>>` y qué criterio usaste para decidir qué versión conservar. Adjunta las capturas 5, 6 y 7.
 
 ---
 
