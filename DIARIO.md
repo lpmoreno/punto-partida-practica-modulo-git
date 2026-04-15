@@ -118,9 +118,16 @@ description: "Flujo profesional",
 ```
 
 4. Hago un commit con el mensaje: `feat: añadir Opción 6 y actualizar descripción de Opción 3`
-5. Sube la rama a tu fork.
+```
+git add .
+git commit -m "feat: añadir Opción 6 y actualizar descripción de Opción 3"
+```
+5. Subo la rama a mi fork.
+```
+git push origin feature/opcion-6
+```
 
-> **Diario:** Explica qué es un conflicto en Git y por qué se va a producir aquí.
+Un conflicto se produce cuando dos personas o ramas editan la misma línea de un fichero, impidiendo así que GIT pueda realizar una fusión automática. En este punto es necesaria una intervención manual para mezlar e integrar ambos cambios. 
 
 ---
 
