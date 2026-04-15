@@ -39,6 +39,12 @@ Un fork o bifurcación es la creación de una copia independiente a partir de un
 Upstream hace referencia al repositorio original desde el que se ha clonado (forked) un proyecto. Nos permite mantener nuestra copia actualizada con los cambios de otros desarrolladores. Además, podemos solicitar la integración de nuestros cambios en el repositorio original.
 
 ![Imagen 1. Terminal con `git remote -v` mostrando `origin` y `upstream` ](capturas/Captura1.png)
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+![Imagen 2. GitHub con la rama `dev` visible en el desplegable de ramas ](capturas/Captura2.png)
+=======
+=======
+>>>>>>> origin/dev
 ![Imagen 2. GitHub con la rama `dev` visible en el desplegable de ramas ](capturas/Captura2.png)
 
 
@@ -81,3 +87,89 @@ git push -u origin feature/opcion-5
 La rama parte de dev porque en este proyecto el desarrollo se está realizando sobre la rama dev. La rama main es la rama estable y los cambios en ella se realizarán de forma muy controlada para evitar pérdidas de datos.
 
 ![Imagen 3. La app en el navegador con la Opción 5 recién añadida](capturas/Captura3.png)
+
+---
+
+### Tarea 3 — Feature branch B: añadir la Opción 6 (aquí está el conflicto)
+
+**Importante:** crea esta rama **ahora**, antes de mergear la Tarea 2. Ambas ramas deben partir del mismo punto en `dev`.
+
+1. Vuelvo a `dev` y creo la rama `feature/opcion-6` desde ahí.
+
+```
+git switch dev
+git switch -c feature/opcion-6
+```
+
+2. Edito `src/app.tsx` y añade la siguiente tarjeta al array `OPTIONS`:
+
+```tsx
+{
+  id: 6,
+  title: "Opción 6",
+  description: "gitignore",
+  message:
+    "El fichero .gitignore le dice a Git qué ficheros debe ignorar. Úsalo para excluir ficheros de entorno (.env), dependencias (node_modules) y cualquier cosa que no deba estar en el repositorio.",
+  featureFlag: false,
+},
+```
+
+3. Además, cambio el campo `description` de la **Opción 3** a:
+
+```tsx
+description: "Flujo profesional",
+```
+
+4. Hago un commit con el mensaje: `feat: añadir Opción 6 y actualizar descripción de Opción 3`
+```
+git add .
+git commit -m "feat: añadir Opción 6 y actualizar descripción de Opción 3"
+```
+5. Subo la rama a mi fork.
+```
+git push origin feature/opcion-6
+```
+
+Un conflicto se produce cuando dos personas o ramas editan la misma línea de un fichero, impidiendo así que GIT pueda realizar una fusión automática. En este punto es necesaria una intervención manual para mezlar e integrar ambos cambios. 
+
+---
+
+### Tarea 4 — Pull Request 1: Feature A a `dev`
+
+1. Abre una Pull Request en GitHub desde `feature/opcion-5` hacia `dev`.
+2. Ponle como título: `feat: añadir Opción 5 y actualizar descripción de Opción 3`
+3. Antes de mergear, abre la pestaña **Files changed** y revisa el diff.
+4. Mergea el PR.
+5. Actualiza tu rama `dev` local con `git pull origin dev`.
+
+En la pestaña Files changed revisamos los cambios realizados entre ambas ramas. Es útil hacerlo antes de mergear para evitar integrar código no deseado y/o evitar la pérdida de código. Adjunta la captura 4.
+
+![Imagen 4. El PR de Feature A en GitHub con la pestaña **Files changed** abierta ](capturas/Captura4.png)
+---
+
+### Tarea 5 — Pull Request 2: Feature B a `dev`, conflicto
+
+1. Abro una Pull Request desde `feature/opcion-6` hacia `dev`.
+2. GitHub detectará un conflicto. No podrá mergear automáticamente.
+3. Resuelvo el conflicto **en local** siguiendo estos pasos:
+   - Me situo en la rama `feature/opcion-6`
+   - Descargo `dev` con `git fetch origin dev`
+   - Fusiono con `git merge origin/dev`
+   - Abro `src/app.tsx` en VS Code y localizo los marcadores de conflicto
+   - Me quedo con la versión de  **`"Flujo profesional"`**
+   - Guardo el fichero
+   - Arranco la app y verifico que se ven todas las opciones correctamente
+   - Hago el commit de resolución: `merge: resolver conflicto de descripción en Opción 3`
+   - Subo la rama con `git push origin feature/opcion-6`
+4. Vuelve al PR en GitHub. El conflicto habrá desaparecido. Mergea el PR.
+5. Actualiza tu `dev` local.
+
+![Imagen 5. El PR de Feature A en GitHub con la pestaña **Files changed** abierta ](capturas/Captura5.png)
+![Imagen 6. El PR de Feature B en GitHub mostrando el banner rojo de conflicto  ](capturas/Captura6.png)
+![Imagen 7. El PR de Feature A en GitHub con la pestaña **Files changed** abierta ](capturas/Captura6.png)
+
+
+> **Diario:** Explica qué significan los marcadores `<<<<<<<`, `=======` y `>>>>>>>` y qué criterio usaste para decidir qué versión conservar. Adjunta las capturas 5, 6 y 7.
+
+---
+
