@@ -166,10 +166,35 @@ En la pestaña Files changed revisamos los cambios realizados entre ambas ramas.
 
 ![Imagen 5. El PR de Feature A en GitHub con la pestaña **Files changed** abierta ](capturas/Captura5.png)
 ![Imagen 6. El PR de Feature B en GitHub mostrando el banner rojo de conflicto  ](capturas/Captura6.png)
-![Imagen 7. El PR de Feature A en GitHub con la pestaña **Files changed** abierta ](capturas/Captura6.png)
+
+Esta captura número 7se me ha pasado hacerla.
+![Imagen 7. El PR de Feature A en GitHub con la pestaña **Files changed** abierta ](capturas/Captura7.png)
 
 
-> **Diario:** Explica qué significan los marcadores `<<<<<<<`, `=======` y `>>>>>>>` y qué criterio usaste para decidir qué versión conservar. Adjunta las capturas 5, 6 y 7.
+Estos marcadores son conflictos de fusión (merge conflicts) en Git, que aparecen cuando intentas unir dos ramas (merge) que modificaron la misma línea de un archivo de maneras distintas. Git no sabe cuál versión conservar y te pide ayuda. 
+Los marcadores significan:
+
+<<<<<<< HEAD (Marcador de inicio): Indica el comienzo del conflicto. Todo lo que está debajo hasta el ======= corresponde a los cambios en la rama actual (donde estás parado).
+
+======= (Separador): Línea divisoria que separa tus cambios locales de los cambios que vienen de la otra rama (o rama remota).
+    
+>>>>>>> [nombre_rama] (Marcador de fin): Indica el final del conflicto. Todo lo que está encima hasta el ======= son los cambios de la rama que intentas fusionar.
 
 ---
 
+### Tarea 6 — Limpieza y cierre del diario
+
+1. Borrogit  las dos feature branches en GitHub (botón **Delete branch** o desde la pestaña de ramas).
+2. Bórralas también en local:
+
+```bash
+git branch -d feature/opcion-5
+git branch -d feature/opcion-6
+```
+
+3. Ejecuta `git branch` y confirma que solo te quedan `main` y `dev`.
+4. Asegúrate de que tu `DIARIO.md` está completo con todas las capturas y haz commit y push.
+
+![Imagen 8. Terminal con `git log --oneline` en `main` mostrando todos los commits ](capturas/Captura8.png)
+
+Hace varios años trabajé en la empresa privada con sistemas controles de versiones, Subversion y después con GIT en sus inicios, aunque la empresa contaba con repositorio propio de GIT y no trabajábamos con Pull Requests. Esta unidad me ha servidor para refrescar conocimiento y para ampliar más sobre esta unidad.
