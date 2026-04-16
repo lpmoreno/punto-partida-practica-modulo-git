@@ -41,6 +41,7 @@ Upstream hace referencia al repositorio original desde el que se ha clonado (for
 ![Imagen 1. Terminal con `git remote -v` mostrando `origin` y `upstream` ](capturas/Captura1.png)
 ![Imagen 2. GitHub con la rama `dev` visible en el desplegable de ramas ](capturas/Captura2.png)
 
+---
 
 ## Tarea 2 — Feature branch A: añadir la Opción 5
 
@@ -51,16 +52,9 @@ En primer lugar nos aseguramos de estar en la rama dev con git branch o git stat
 git switch -c feature/opcion-5
 ```
 
-2. Edito `src/app.tsx` para incluir la tarjeta 5 al array `OPTIONS`:
+2. Edito `src/app.tsx` para incluir la tarjeta 5 al array `OPTIONS`.
 
-```tsx
-```
-
-3. Además, modifico el campo `description` de la **Opción 3** de su valor actual a:
-
-```tsx
-description: "Flujo de trabajo",
-```
+3. Además, modifico el campo `description` de la **Opción 3** de su valor actual a 'Flujo de trabajo.
 
 4. Arrancamos la app y verificamos en el navegador que aparece la Opción 5.
 ```
@@ -73,7 +67,7 @@ git add .
 git commit -m "feat: añadir Opción 5 y actualizar descripción de Opción 3"
 ```
 
-6. Sube la rama a tu fork.
+6. Subo la rama a mi fork.
 ```
 git push -u origin feature/opcion-5
 ```
@@ -84,9 +78,8 @@ La rama parte de dev porque en este proyecto el desarrollo se está realizando s
 
 ---
 
-### Tarea 3 — Feature branch B: añadir la Opción 6 (aquí está el conflicto)
+## Tarea 3 — Feature branch B: añadir la Opción 6 (aquí está el conflicto)
 
-**Importante:** crea esta rama **ahora**, antes de mergear la Tarea 2. Ambas ramas deben partir del mismo punto en `dev`.
 
 1. Vuelvo a `dev` y creo la rama `feature/opcion-6` desde ahí.
 
@@ -95,7 +88,7 @@ git switch dev
 git switch -c feature/opcion-6
 ```
 
-2. Edito `src/app.tsx` y añade la siguiente tarjeta al array `OPTIONS`:
+2. Edito `src/app.tsx` y añado la siguiente tarjeta al array `OPTIONS`:
 
 ```tsx
 {
@@ -128,20 +121,21 @@ Un conflicto se produce cuando dos personas o ramas editan la misma línea de un
 
 ---
 
-### Tarea 4 — Pull Request 1: Feature A a `dev`
+## Tarea 4 — Pull Request 1: Feature A a `dev`
 
-1. Abre una Pull Request en GitHub desde `feature/opcion-5` hacia `dev`.
-2. Ponle como título: `feat: añadir Opción 5 y actualizar descripción de Opción 3`
-3. Antes de mergear, abre la pestaña **Files changed** y revisa el diff.
-4. Mergea el PR.
-5. Actualiza tu rama `dev` local con `git pull origin dev`.
+1. En Github, creo una Pull Request desde `feature/opcion-5` hacia `dev`.
+2. Añado el título: `feat: añadir Opción 5 y actualizar descripción de Opción 3`
+3. Antes de mergear, abro la pestaña **Files changed** y reviso el diff.
+4. Mergeo el PR.
+5. Actualizo mi rama `dev` local con `git pull origin dev`.
 
-En la pestaña Files changed revisamos los cambios realizados entre ambas ramas. Es útil hacerlo antes de mergear para evitar integrar código no deseado y/o evitar la pérdida de código. Adjunta la captura 4.
+En la pestaña Files changed revisamos los cambios realizados entre ambas ramas. Es útil hacerlo antes de mergear para evitar integrar código no deseado y/o evitar la pérdida de código.
 
 ![Imagen 4. El PR de Feature A en GitHub con la pestaña **Files changed** abierta ](capturas/Captura4.png)
+
 ---
 
-### Tarea 5 — Pull Request 2: Feature B a `dev`, conflicto
+## Tarea 5 — Pull Request 2: Feature B a `dev`, conflicto
 
 1. Abro una Pull Request desde `feature/opcion-6` hacia `dev`.
 2. GitHub detectará un conflicto. No podrá mergear automáticamente.
@@ -155,13 +149,13 @@ En la pestaña Files changed revisamos los cambios realizados entre ambas ramas.
    - Arranco la app y verifico que se ven todas las opciones correctamente
    - Hago el commit de resolución: `merge: resolver conflicto de descripción en Opción 3`
    - Subo la rama con `git push origin feature/opcion-6`
-4. Vuelve al PR en GitHub. El conflicto habrá desaparecido. Mergea el PR.
-5. Actualiza tu `dev` local.
+4. Vuelvo al PR en GitHub. El conflicto habrá desaparecido. Mergeo el PR.
+5. Actualizo mi `dev` local con los cambios.
 
 ![Imagen 5. El PR de Feature A en GitHub con la pestaña **Files changed** abierta ](capturas/Captura5.png)
 ![Imagen 6. El PR de Feature B en GitHub mostrando el banner rojo de conflicto  ](capturas/Captura6.png)
 
-Esta captura número 7se me ha pasado hacerla.
+Esta captura número 7 se me ha pasado hacerla.
 ![Imagen 7. El PR de Feature A en GitHub con la pestaña **Files changed** abierta ](capturas/Captura7.png)
 
 
@@ -176,19 +170,20 @@ Los marcadores significan:
 
 ---
 
-### Tarea 6 — Limpieza y cierre del diario
+## Tarea 6 — Limpieza y cierre del diario
 
-1. Borrogit  las dos feature branches en GitHub (botón **Delete branch** o desde la pestaña de ramas).
-2. Bórralas también en local:
+1. Borro en Github  las dos feature branches en GitHub (botón **Delete branch** o desde la pestaña de ramas).
+2. Elimino las ramas también en local:
 
 ```bash
 git branch -d feature/opcion-5
 git branch -d feature/opcion-6
 ```
 
-3. Ejecuta `git branch` y confirma que solo te quedan `main` y `dev`.
-4. Asegúrate de que tu `DIARIO.md` está completo con todas las capturas y haz commit y push.
+3. Ejecuto `git branch` para confirmar `main` y `dev`.
+4. Subo los cambios de mi`DIARIO.md` al repo.
 
 ![Imagen 8. Terminal con `git log --oneline` en `main` mostrando todos los commits ](capturas/Captura8.png)
 
-Hace varios años trabajé en la empresa privada con sistemas controles de versiones, Subversion y después con GIT en sus inicios, aunque la empresa contaba con repositorio propio de GIT y no trabajábamos con Pull Requests. Esta unidad me ha servidor para refrescar conocimiento y para ampliar más sobre esta unidad.
+CONCLUSIÓN
+Hace varios años trabajé en la empresa privada con sistemas controles de versiones, Subversion y después con GIT en sus inicios, aunque la empresa contaba con repositorio propio de GIT y no trabajábamos con Pull Requests. Esta unidad me ha servido para refrescar conocimiento y para ampliar más sobre esta unidad.
