@@ -39,12 +39,6 @@ Un fork o bifurcación es la creación de una copia independiente a partir de un
 Upstream hace referencia al repositorio original desde el que se ha clonado (forked) un proyecto. Nos permite mantener nuestra copia actualizada con los cambios de otros desarrolladores. Además, podemos solicitar la integración de nuestros cambios en el repositorio original.
 
 ![Imagen 1. Terminal con `git remote -v` mostrando `origin` y `upstream` ](capturas/Captura1.png)
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-![Imagen 2. GitHub con la rama `dev` visible en el desplegable de ramas ](capturas/Captura2.png)
-=======
-=======
->>>>>>> origin/dev
 ![Imagen 2. GitHub con la rama `dev` visible en el desplegable de ramas ](capturas/Captura2.png)
 
 
@@ -178,7 +172,7 @@ Los marcadores significan:
 
 ======= (Separador): Línea divisoria que separa tus cambios locales de los cambios que vienen de la otra rama (o rama remota).
     
->>>>>>> [nombre_rama] (Marcador de fin): Indica el final del conflicto. Todo lo que está encima hasta el ======= son los cambios de la rama que intentas fusionar.
+\>>>>>>> [nombre_rama] (Marcador de fin): Indica el final del conflicto. Todo lo que está encima hasta el ======= son los cambios de la rama que intentas fusionar.
 
 ---
 
